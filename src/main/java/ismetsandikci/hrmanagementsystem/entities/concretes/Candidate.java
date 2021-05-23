@@ -7,42 +7,30 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
+import lombok.NoArgsConstructor;
+@Data
 @Entity
 @Table(name="candidates")
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Candidate {
 
 	@Id
-	@Column(name="userid")
+	@Column(name="user_id")
 	private int userId;
 
-	@Column(name="firstname")
+	@Column(name="first_name")
 	private String firstName;
 
-	@Column(name="lastname")
+	@Column(name="last_name")
 	private String lastName;
 
-	@Column(name="nationalityid")
+	@Column(name="nationality_id")
 	private String nationalityId;
 
-	@Column(name="dateofbirth")
-	private Date dateofbirth;
-	
-	public Candidate() {
-		
-	}
-	
-	public Candidate(int userId, String firstName, String lastName, String nationalityId, Date dateofbirth) {
-		super();
-		this.userId = userId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.nationalityId = nationalityId;
-		this.dateofbirth = dateofbirth;
-	}
-	
-	
+	@Column(name="birth_date")
+	private Date birthDate;
 	
 }

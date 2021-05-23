@@ -2,8 +2,6 @@ package ismetsandikci.hrmanagementsystem.entities.concretes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,17 +11,18 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name="job_positions")
+@Table(name="employer_phones")
 @AllArgsConstructor
 @NoArgsConstructor
-public class JobPosition {
-
+public class EmployerPhone {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 
-	@Column(name="name")
-	private String name;
-	
+	@Column(name="employer_id")
+	private int employerId;
+
+	@Column(name="phone_number")
+	private String phoneNumber;
 }

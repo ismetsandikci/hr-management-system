@@ -1,40 +1,30 @@
 package ismetsandikci.hrmanagementsystem.entities.concretes;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
 @Entity
 @Table(name="employers")
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Employer {
 	
 	@Id
-	@Column(name="userid")
+	@Column(name="user_id")
 	private int userId;
 
-	@Column(name="companyname")
+	@Column(name="company_name")
 	private String companyName;
 
-	@Column(name="webaddress")
+	@Column(name="web_address")
 	private String webAddress;
-
-	@Column(name="phonenumber")
-	private String phoneNumber;
-
-	public Employer() {
-		
-	}
-	
-	public Employer(int userId, String companyName, String webAddress, String phoneNumber) {
-		super();
-		this.userId = userId;
-		this.companyName = companyName;
-		this.webAddress = webAddress;
-		this.phoneNumber = phoneNumber;
-	}
 
 }

@@ -1,5 +1,7 @@
 package ismetsandikci.hrmanagementsystem.entities.concretes;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,17 +15,23 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name="job_positions")
+@Table(name="verification_codes")
 @AllArgsConstructor
 @NoArgsConstructor
-public class JobPosition {
-
+public class VerificationCode {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 
-	@Column(name="name")
-	private String name;
-	
+	@Column(name="code")
+	private String code;
+
+	@Column(name="is_verified")
+	private boolean isVerified;
+
+	@Column(name="verified_date")
+	private Date verifiedDate;
+
 }
