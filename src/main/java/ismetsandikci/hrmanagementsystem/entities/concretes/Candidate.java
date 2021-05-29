@@ -1,25 +1,25 @@
 package ismetsandikci.hrmanagementsystem.entities.concretes;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
 @Data
 @Entity
 @Table(name="candidates")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Candidate {
-
-	@Id
-	@Column(name="user_id")
-	private int userId;
+@EqualsAndHashCode(callSuper = false)
+@PrimaryKeyJoinColumn(name="user_id",referencedColumnName = "id")
+public class Candidate extends User {
 
 	@Column(name="first_name")
 	private String firstName;
@@ -31,6 +31,6 @@ public class Candidate {
 	private String nationalityId;
 
 	@Column(name="birth_date")
-	private Date birthDate;
+	private LocalDate birthDate;
 	
 }
