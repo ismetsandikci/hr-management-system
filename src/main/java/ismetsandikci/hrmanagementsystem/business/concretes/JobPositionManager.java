@@ -28,12 +28,12 @@ public class JobPositionManager implements JobPositionService{
 
 	@Override
 	public DataResult<List<JobPosition>> getAll() {
-		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.findAll());
+		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.findAll(), "İş Pozisyonları Listelendi");
 	}
 
 	@Override
 	public DataResult<JobPosition> getByTitleName(String titleName) {
-		return new SuccessDataResult<JobPosition>(this.jobPositionDao.findByTitleName(titleName));
+		return new SuccessDataResult<JobPosition>(this.jobPositionDao.findByTitleName(titleName), "İş Pozisyonu Listelendi");
 	}
 
 	@Override

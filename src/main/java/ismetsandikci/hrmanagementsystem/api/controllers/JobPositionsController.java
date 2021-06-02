@@ -26,13 +26,18 @@ public class JobPositionsController {
 		this.jobPositionService = jobPositionService;
 	}
 	
-	@GetMapping("/getall")
+	@GetMapping("/getAll")
 	public DataResult<List<JobPosition>> getAll() {
 		return this.jobPositionService.getAll();
 	}
 	
+	@GetMapping("/getByTitleName")
+	public DataResult<JobPosition> getByTitleName(String titleName) {
+		return this.jobPositionService.getByTitleName(titleName);
+	}
+	
 	@PostMapping("/add")
-	public Result registerCandidate(@RequestBody JobPosition jobPosition) {
+	public Result add(@RequestBody JobPosition jobPosition) {
 		
 		return this.jobPositionService.add(jobPosition);
 				

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import ismetsandikci.hrmanagementsystem.business.abstracts.VerificationCodeService;
 import ismetsandikci.hrmanagementsystem.core.utilities.results.DataResult;
+import ismetsandikci.hrmanagementsystem.core.utilities.results.SuccessDataResult;
 import ismetsandikci.hrmanagementsystem.dataAccess.abstracts.VerificationCodeDao;
 import ismetsandikci.hrmanagementsystem.entities.concretes.VerificationCode;
 
@@ -23,8 +24,7 @@ public class VerificationCodeManager implements VerificationCodeService {
 
 	@Override
 	public DataResult<List<VerificationCode>> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return new SuccessDataResult<List<VerificationCode>>(this.verificationCodeDao.findAll());
 	}
 	
 }
