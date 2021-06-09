@@ -10,9 +10,7 @@ import ismetsandikci.hrmanagementsystem.entities.dtos.JobPostingListDto;
 public interface JobPostingService {
 
 	DataResult<List<JobPosting>> getAll();
-	
-	DataResult<List<JobPostingListDto>> getAllDto();
-	
+		
 	DataResult<JobPosting> getById(int id);
 	
 	DataResult<List<JobPostingListDto>> getByIsActiveTrue();

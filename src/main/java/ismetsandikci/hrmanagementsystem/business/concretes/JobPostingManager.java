@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import ismetsandikci.hrmanagementsystem.business.abstracts.JobPostingService;
@@ -30,11 +29,6 @@ public class JobPostingManager implements JobPostingService{
 	@Override
 	public DataResult<List<JobPosting>> getAll() {
 		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.findAll(), "Tüm iş ilanları detay listelendi.");
-	}
-
-	@Override
-	public DataResult<List<JobPostingListDto>> getAllDto() {
-		return new SuccessDataResult<List<JobPostingListDto>>(this.jobPostingDao.getAllDto(), "Tüm iş ilanları listelendi.");
 	}
 	
 	@Override

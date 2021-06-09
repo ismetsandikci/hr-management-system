@@ -10,43 +10,41 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name="job_positions")
+@Table(name="languages")
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "jobPostings"})
-public class JobPosition {
-
+public class Language {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
-
-	@Column(name="name")
-	private String titleName;
 	
-	@Column(name="description")
-	private String description;
+	@NotNull
+	@Size(max = 50)
+	@Column(name="language_name")
+	private String languageName;
 	
-	@Column(name="created_date")
-	private LocalDate createdDate;
-	
+	@NotNull
 	@Column(name="is_active")
-	private Boolean isActive;
+	private boolean isActive;
+	
+	@NotNull
+	@Column(name="created_date")
+	private LocalDate createdDate = LocalDate.now();
+	
 	
 	@JsonIgnore()
-	@OneToMany(mappedBy="jobPosition")
-	private List<JobPosting> jobPostings;
-	
+	@OneToMany(mappedBy = "language")
+	private List<ResumeLanguage> resumeLanguage;
 }

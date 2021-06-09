@@ -1,52 +1,47 @@
 package ismetsandikci.hrmanagementsystem.entities.concretes;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name="job_positions")
+@Table(name="resume_skills")
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "jobPostings"})
-public class JobPosition {
-
+public class ResumeSkill {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
-
+	
+	@JoinColumn(name = "resume_id")
+	@ManyToOne
+	private Resume resume;
+	
+	@NotNull
 	@Column(name="name")
-	private String titleName;
+	private String name;
 	
-	@Column(name="description")
-	private String description;
-	
-	@Column(name="created_date")
-	private LocalDate createdDate;
-	
+	@NotNull
 	@Column(name="is_active")
-	private Boolean isActive;
+	private boolean isActive;
 	
-	@JsonIgnore()
-	@OneToMany(mappedBy="jobPosition")
-	private List<JobPosting> jobPostings;
-	
+	@NotNull
+	@Column(name="created_date")
+	private LocalDate createdDate = LocalDate.now();
 }
