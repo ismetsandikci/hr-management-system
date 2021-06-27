@@ -77,6 +77,8 @@ public class JobPostingManager implements JobPostingService{
 		jobPosting.setCreatedDate(LocalDate.now());
 		jobPosting.setActive(true);
 		
+		System.out.println("jobPosting -->>> " + jobPosting);
+		
 		this.jobPostingDao.save(jobPosting);
 		return new SuccessResult("JobPosting Added.");
 	}

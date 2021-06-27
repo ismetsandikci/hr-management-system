@@ -9,4 +9,6 @@ public interface CandidateDao extends JpaRepository<Candidate, Integer> {
 	Candidate findByNationalityId(String nationalityId);
 	
 	Candidate findByEmail(String emailAddress);
+	
+	Candidate getById(int id);
 }

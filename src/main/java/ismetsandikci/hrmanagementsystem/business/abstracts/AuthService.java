@@ -1,10 +1,12 @@
 package ismetsandikci.hrmanagementsystem.business.abstracts;
 
 import ismetsandikci.hrmanagementsystem.core.utilities.results.Result;
-import ismetsandikci.hrmanagementsystem.entities.concretes.Candidate;
-import ismetsandikci.hrmanagementsystem.entities.concretes.Employer;
+import ismetsandikci.hrmanagementsystem.entities.dtos.CandidateForRegisterDto;
+import ismetsandikci.hrmanagementsystem.entities.dtos.EmployerForRegisterDto;
+import ismetsandikci.hrmanagementsystem.entities.dtos.LoginForUserDto;
 
 public interface AuthService {
-	Result registerForCandidate(Candidate candidate, String passwordRepeat);
-	Result registerForEmployer(Employer employer, String passwordRepeat);
+	Result registerForCandidate(CandidateForRegisterDto candidateForRegisterDto);
+	Result registerForEmployer(EmployerForRegisterDto employerForRegisterDto);
+	Result login(LoginForUserDto loginForUserDto);
 }

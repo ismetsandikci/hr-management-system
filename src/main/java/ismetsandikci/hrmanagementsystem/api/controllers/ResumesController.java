@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,7 @@ import ismetsandikci.hrmanagementsystem.entities.concretes.Resume;
 
 @RestController
 @RequestMapping("/api/resumes")
+@CrossOrigin
 public class ResumesController {
 
 	private ResumeService resumeService;
@@ -39,9 +41,9 @@ public class ResumesController {
 		return ResponseEntity.ok(this.resumeService.getById(id));
 	}
 	
-	@GetMapping("/getByCandidate_id")
-	public ResponseEntity<DataResult<List<Resume>>> getByCandidate_id(@RequestParam int candidateId) {
-		return ResponseEntity.ok(this.resumeService.getByCandidate_id(candidateId));
+	@GetMapping("/getByCandidateId")
+	public ResponseEntity<DataResult<List<Resume>>> getByCandidateId(@RequestParam int candidateId) {
+		return ResponseEntity.ok(this.resumeService.getByCandidateId(candidateId));
 	}
 	
 	@PostMapping("/uploadPhoto")

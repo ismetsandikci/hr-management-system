@@ -14,5 +14,7 @@ public interface CandidateService {
 	
 	DataResult<Candidate> getByEmail(String emailAddress);
 	
+	DataResult<Candidate> getById(int id);
+	
 	Result add(Candidate candidate);
 } 

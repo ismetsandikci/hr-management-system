@@ -3,6 +3,7 @@ package ismetsandikci.hrmanagementsystem.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import ismetsandikci.hrmanagementsystem.entities.concretes.City;
 
 @RestController
 @RequestMapping("api/cities")
+@CrossOrigin
 public class CitiesController {
 	
 	private CityService cityService;
@@ -26,9 +28,14 @@ public class CitiesController {
 		this.cityService = cityService;
 	}
 	
-	@GetMapping("/getAll")
+	@GetMapping("/getall")
 	public DataResult<List<City>> getAll(){
 		return this.cityService.getAll();
+	}
+	
+	@GetMapping("/getById")
+	public DataResult<City> getById(int id) {
+		return this.cityService.getById(id);
 	}
 	
 	@PostMapping("/add")

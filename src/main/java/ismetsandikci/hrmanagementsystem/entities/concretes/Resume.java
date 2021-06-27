@@ -33,6 +33,8 @@ public class Resume {
 	@Column(name="id")
 	private int id;
 	
+	@Column(name="title")
+	private String title;
 
 	@ManyToOne
 	@JoinColumn(name = "candidate_id")

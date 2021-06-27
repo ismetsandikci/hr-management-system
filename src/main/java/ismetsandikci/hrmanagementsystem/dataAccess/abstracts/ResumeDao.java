@@ -9,5 +9,5 @@ import ismetsandikci.hrmanagementsystem.entities.concretes.Resume;
 
 public interface ResumeDao extends JpaRepository<Resume, Integer> {
 	
-	Optional<List<Resume>> getByCandidate_id(int candidateId);
+	Optional<List<Resume>> getByCandidateId(int candidateId);
 }

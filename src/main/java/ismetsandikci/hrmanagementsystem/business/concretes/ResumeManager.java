@@ -49,8 +49,8 @@ public class ResumeManager implements ResumeService {
 	}
 
 	@Override
-	public DataResult<List<Resume>> getByCandidate_id(int candidateId) {
-		Optional<List<Resume>> candidateResult = this.resumeDao.getByCandidate_id(candidateId);
+	public DataResult<List<Resume>> getByCandidateId(int candidateId) {
+		Optional<List<Resume>> candidateResult = this.resumeDao.getByCandidateId(candidateId);
 		
 		if (candidateResult.isEmpty()) {
 			return new ErrorDataResult<List<Resume>>("İş Arayanın Cv Bulunamadı");
@@ -62,7 +62,7 @@ public class ResumeManager implements ResumeService {
 	public Result uploadPhoto(int candidateId, MultipartFile file) {
 		Map<String, String> result = (Map<String, String>) this.imageService.uploadPhoto(file).getData();
 		String url = result.get("url");
-		List<Resume> resumesAddPhoto = this.getByCandidate_id(candidateId).getData();
+		List<Resume> resumesAddPhoto = this.getByCandidateId(candidateId).getData();
 		for (Resume resume : resumesAddPhoto) {
 			resume.setImage(url);
 			this.resumeDao.save(resume);

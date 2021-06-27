@@ -14,7 +14,7 @@ public interface ResumeService {
 	
     DataResult<Resume> getById(int id);
     
-    DataResult<List<Resume>> getByCandidate_id(int candidateId);
+    DataResult<List<Resume>> getByCandidateId(int candidateId);
     
     Result uploadPhoto(int candidateId, MultipartFile file);
 

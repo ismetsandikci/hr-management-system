@@ -7,4 +7,6 @@ import ismetsandikci.hrmanagementsystem.entities.concretes.Employer;
 public interface EmployerDao extends JpaRepository<Employer, Integer> {
 	
 	Employer findByEmail(String email);
+	
+	Employer getById(int id);
 }

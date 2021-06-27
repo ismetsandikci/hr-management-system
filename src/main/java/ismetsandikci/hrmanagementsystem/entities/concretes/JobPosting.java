@@ -40,6 +40,9 @@ public class JobPosting {
 	
 	@Column(name = "application_deadline")
 	private LocalDate applicationDeadline;
+
+	@Column(name = "is_remote")
+	private boolean isRemote;
 	
 	@Column(name = "created_date")
 	private LocalDate createdDate;
@@ -59,5 +62,9 @@ public class JobPosting {
 	@ManyToOne
 	@JoinColumn(name="city_id")
 	private City city;
+	
+	@ManyToOne()
+	@JoinColumn(name="employment_type_id")
+	private EmploymentType employmentType;
 	
 }

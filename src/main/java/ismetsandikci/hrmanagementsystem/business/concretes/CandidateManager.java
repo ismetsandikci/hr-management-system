@@ -46,7 +46,13 @@ public class CandidateManager implements CandidateService {
 	}
 
 	@Override
+	public DataResult<Candidate> getById(int id) {
+		return new SuccessDataResult<Candidate>(this.candidateDao.getById(id));
+	}
+
+	@Override
 	public Result add(Candidate candidate) {
+		
 		if(!validationCondidate(candidate)) {
 			return new ErrorResult("Missing data entry.");
 		}
